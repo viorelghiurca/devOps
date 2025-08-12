@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  youtrack:
+    image: jetbrains/youtrack:2025.2.89748
+    container_name: youtrack
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/opt/youtrack/data
+      - ./conf:/opt/youtrack/conf
+      - ./logs:/opt/youtrack/logs
+      - ./backups:/opt/youtrack/backups
+ user: "13001:13001"
